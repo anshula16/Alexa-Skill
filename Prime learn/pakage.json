@@ -19,11 +19,9 @@
                     "name": "FunFact",
                     "slots": [],
                     "samples": [
-                        "maths fun",
-                        "tell me prime fun",
-                        "prime fun",
-                        "math fun",
-                        "tell me math fun"
+                        "fun facts",
+                        "tell me fun facts",
+                        "tell me"
                     ]
                 }
             ],
