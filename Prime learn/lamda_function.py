@@ -13,8 +13,8 @@ def onIntent(intentRequest, session):
              
     intent = intentRequest['intent']
     intentName = intentRequest['intent']['name']
-    if intentName == "whatismathfun":
-        return fun_math(intent, session)
+    if intentName == "whatischocolate":
+        return chocoland_fact(intent, session)
     elif intentName == "AMAZON.HelpIntent":
         return welcomeuser()
     elif intentName == "AMAZON.CancelIntent" or intentName == "AMAZON.StopIntent":
@@ -28,26 +28,26 @@ def onSessionEnd(sessionEndedRequest, session):
 def welcomeuser():
     sessionAttributes = {}
     cardTitle = " Hello"
-    speechOutput =  "Hello , Welcome to prime learn! " \
-                    "You can know interesting facts about maths by saying Tell me math fun"
-    repromptText =  "You can know interesting facts about maths by saying Tell me math fun"
+    speechOutput =  "Hello , Welcome to Choco FACT-ory! " \
+                    "You can know interesting facts about Chocolates by saying Tell me facts about chocolates"
+    repromptText =  "You can know interesting facts about Chocolates by saying Tell me facts about chocolates"
     shouldEndSession = False
     
     return buildResponse(sessionAttributes, buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession))
 
-def fun_math(intent, session):
+def chocoland_fact(intent, session):
     import random
-    index = random.randint(0,len(prime)-1)
+    index = random.randint(0,len(chocolate)-1)
     cardTitle = intent['name']
     sessionAttributes = {}
-    speechOutput = "Prime learn that is actually a math fact is that " + prime[index] 
-    repromptText = "You can know interesting facts about maths by saying Tell me math fun"
+    speechOutput = chocolate[index]
+    repromptText = "You can know interesting facts about Chocolates by saying Tell me facts about chocolates"
     shouldEndSession = True                   
     return buildResponse(sessionAttributes, buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession))
 
 def handleSessionEndRequest():
     cardTitle = "Session Ended"
-    speechOutput = "Thank you for using prime learn Alexa Skills Kit. " \
+    speechOutput = "Thank you for using Choco FACT-ory Alexa Skills Kit. " \
                     "Have a great time! "
     shouldEndSession = True
     return buildResponse({}, buildSpeechletResponse(cardTitle, speechOutput, None, shouldEndSession))
@@ -84,36 +84,26 @@ def buildResponse(sessionAttr , speechlet):
 
 
 
-prime = [ "There is no largest prime number." ,
-          "The sum of the interior angles of a triangle is 180 degrees" ,
-          "There is a largest prime number in the integers modulo n",
-          "The Fibonacci sequence is encoded in the number 1/89" ,
-          "If you write out pi to two decimal places, backwards it spells pie." ,
-          "A French word for pie chart is camembert." ,
-          "The spiral shapes of sunflowers follow a Fibonacci sequence.",
-          "A pizza that has radius z and height a has volume Pi times z square multiply by a." ,
-          "The word hundred is derived from the word hundrath, which actually means 120 and not 100." ,
-          "In a room of just 23 people there’s a 50% chance that two people have the same birthday." ,
-          "Zero is the only number that can't be represented in Roman numerals.",
-          "six multiply by 9 and then add six and nine to them is equal to sixty nine." ,
-          "We tend to think of odd numbers as male and even numbers as female." ,
-          "If you shuffle a pack of cards properly, chances are that exact order has never been seen before in the whole history of the universe." ,
-          "Zero is an even number.",
-          "There's not enough space in the known universe to write out a googolplex on paper.",
-          "The most popular favourite number is 7.",
-          "7 also shows up a lot in human culture.",
-          "The number 4 is considered unlucky in much of Asia.",
-          "Cicadas use prime numbers as an evolutionary strategy.",
-          "10 factorial seconds is exactly 6 weeks." ,
-          "Take any four digit number, follow these steps, and you'll end up with 6174." ,
-          "555 is used by some in Thailand as slang for hahaha, because the word for five is pronounced ha." ,
-          " after a million, billion and trillion , A quadrillion, quintillion, sextillion, septillion, octillion, nonillion, decillion and undecillion come" ,
-          "Plus and Minus symbols were used as early as 1489 A.D" ,
-          "2 and 5 are the only primes that end in 2 or 5" ,
-          "An icosagon is a shape with 20 sides" ,
-          "'FOUR' is the only number in the English language that is spelt with the same number of letters as the number itself" ,
-          "Have you ever noticed that the opposite sides a die always add up to seven." ,
-          "Trigonometry is the study of the relationship between the angles of triangles and their sides",
-          "Abacus is considered the origin of the calculator" ,
-          "A 'jiffy' is an actual unit of time for 1/100th of a second"
+chocolate = ["There is a correlation between the amount of chocolate a country consumes on average and the number of Nobel Laureates that country has produced." ,
+          "At one point the Nazis plotted to assassinate Winston Churchill with an exploding bar of chocolate." ,
+          "The scientific name for the tree that chocolate comes from, Theobroma cacao, means food of the gods.",
+          "Chocolate has over 600 flavor compounds, while red wine has just 200." ,
+          "In fact, chocolate was consumed as a liquid, not a solid, for 90% of its history." ,
+          "During the Revolutionary War, soldiers were sometimes paid in chocolate." ,
+          "Hershey's Kisses got their name from the kissing sound the machine that deposits the chocolate on the conveyor belt makes.",
+          "The inventor of the chocolate chip cookie, Ruth Wakefield, sold her cookie recipe to Nestle in exchange for a lifetime supply of chocolate." ,
+          "German chocolate cake has nothing to do with Germany. It's named after its inventor, Sam German." ,
+          "M&Ms were created in 1941 as a means for soldiers to enjoy chocolate without it melting." ,
+          "Chocolate can sicken and even kill dogs.",
+          "Kit Kat is produced worldwide by Nestle, except in the U.S. where their competitor, Hershey makes them." ,
+          "White Chocolate is not technically Chocolate, as it contains no cocoa solids or cocoa liquor. White chocolate contains cocoa butter instead." ,
+          "Dark chocolate may improve blood flow and lower blood pressure.",
+          "It takes about a year for a cocoa tree to produce enough pods to make about 10 small-sized chocolate bars.",
+          "Chocolate Was a Form of Currency in the Mayan Times",
+          "The Chocolate Chip Cookie Was Invented by Accident",
+          "There are Actually Four Different Types of Chocolate: Dark, Milk, White, and Blond",
+          "The First Chocolate Bar was Invented in 1847 by Joseph Fry",
+          "The French Celebrate April Fools Day with Fish-Shaped Chocolate" ,
+          "Snickers is Actually Named After a Horse" ,
+          "Eating dark chocolate everyday reduces the risk of heart disease by one third."
         ]
