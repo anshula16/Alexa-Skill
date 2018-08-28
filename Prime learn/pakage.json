@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "prime learn",
+            "invocationName": "choco factory",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
@@ -16,12 +16,12 @@
                     "samples": []
                 },
                 {
-                    "name": "strangeLaws",
+                    "name": "whatischocolate",
                     "slots": [],
                     "samples": [
-                        "strange laws",
-                        "tell me strange law",
-                        "tell me"
+                        "tell me facts about chocolate",
+                        "facts about chocolate",
+                        "chocolate facts"
                     ]
                 }
             ],
